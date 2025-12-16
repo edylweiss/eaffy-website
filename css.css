@@ -1,0 +1,798 @@
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Lilac, White, and Grey Color Palette */
+:root {
+    --lilac-light: #F8F9FA; /* Lightest Grey / Main Background */
+    --lilac-white: #FFFFFF; /* Pure White / Section Background */
+    --lilac-accent: #C8A2C8; /* Soft Lilac / Highlight & Accent */
+    --text-dark: #343A40; /* Dark Charcoal Grey / Primary Text */
+    --text-medium: #6C757D; /* Neutral Medium Grey / Secondary Text & Subtle Borders */
+    --lilac-border: #E9ECEF; /* Very Light Border Grey */
+    --button-dark: #212529; /* Dark color for button background/text */
+}
+
+/* Global Styles & Minimalist Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Updated to Poppins */
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--lilac-light); /* Main body background: Light Grey */
+    transition: background-color 0.3s;
+    padding-top: 80px; /* Space for fixed header */
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Utility Class */
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-10 { margin-bottom: 2.5rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+.text-center { text-align: center; }
+
+/* Header & Navigation */
+header {
+    background-color: var(--lilac-white); /* White header background */
+    padding: 10px 0;
+    border-bottom: 3px solid var(--lilac-accent); /* Lilac accent border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+}
+    
+header h1 {
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    font-weight: 700; /* Bold for headers */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-medium);
+    padding: 8px 15px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 600;
+    margin: 2px;
+    cursor: pointer;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: var(--lilac-accent); /* Lilac on hover/active */
+    color: white;
+}
+
+/* Main Content Sections */
+main section {
+    display: none; /* Hide all sections by default */
+    padding: 40px 0;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: var(--lilac-white); /* White section background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+main section.active {
+    display: block; /* Show the active section */
+}
+
+main h2 {
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+    
+main h3 {
+    font-weight: 600;
+    color: var(--text-dark); /* Ensure subheadings are dark */
+}
+
+/* --- UPDATED HOMEPAGE STYLES --- */
+#home .intro-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start; /* Align text block and image block at the top */
+    padding: 20px;
+    flex-direction: row; /* Text on Left, Image on Right */
+    text-align: left;
+}
+
+.intro-text {
+    flex: 1; /* Allows the text block to take up available space */
+    padding-right: 20px;
+}
+
+.home-title {
+    line-height: 1; /* Tighter line height for name/title block */
+    margin-bottom: 20px;
+}
+
+.home-title h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-dark); /* Dark name */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.home-title h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--lilac-accent); /* Lilac job title */
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-align: left; /* Override main h2 centering */
+}
+
+/* Small underline bar to separate the title from the body text */
+.home-title h2:after {
+    content: '';
+    display: block;
+    width: 60px; /* Short line */
+    height: 3px;
+    background: var(--lilac-accent); /* Lilac color */
+    margin-top: 10px;
+    margin-bottom: 20px; /* Added spacing after title */
+}
+
+.profile-image {
+    flex-shrink: 0; /* Prevents the image container from shrinking */
+    text-align: center; /* Center image and button within its container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    
+.profile-image img {
+    width: 300px; /* Slightly larger image */
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 6px solid var(--lilac-accent); /* Lilac border */
+    box-shadow: 0 0 0 6px var(--lilac-border); /* Light grey secondary border */
+    transition: all 0.5s;
+    margin-bottom: 0; /* Removed default margin bottom */
+}
+
+/* NEW: Button Styles (Used for both main button and biodata button) */
+.more-info-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    padding: 10px 25px 10px 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: var(--text-dark); /* Dark text for contrast */
+    border: 2px solid var(--text-dark); /* Dark border */
+    border-radius: 30px; /* Pill shape */
+    overflow: hidden;
+    position: relative;
+    background-color: transparent;
+    transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+}
+    
+/* Specific margin for the button in the biodata section */
+.biodata-image-container .more-info-button {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.more-info-button:hover {
+    color: white;
+    background-color: var(--lilac-accent);
+    border-color: var(--lilac-accent);
+}
+
+.more-info-button .arrow {
+    width: 35px;
+    height: 35px;
+    margin-left: 15px;
+    border-radius: 50%;
+    background-color: var(--lilac-accent); /* Lilac circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.more-info-button:hover .arrow {
+    background-color: var(--text-dark); /* Dark circle on hover */
+}
+    
+/* --- Biodata Styles (New Additions & Updates) --- */
+    
+/* NEW: Flex layout for image and personal details */
+.biodata-header-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 900px; /* Constrain the inner container width */
+    margin: 0 auto 30px auto;
+}
+    
+.biodata-image-container {
+    flex-shrink: 0;
+    width: 250px;
+    text-align: center;
+    margin-top: 25px; /* Offset to align with the start of the details content */
+}
+
+.biodata-image-container img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--lilac-accent);
+    box-shadow: 0 0 0 5px var(--lilac-border);
+}
+
+/* NEW: Styles for social links under biodata image */
+.biodata-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.biodata-social-links a {
+    color: var(--lilac-accent);
+    font-size: 1.5rem; /* Slightly smaller than main social links */
+    transition: color 0.3s, transform 0.3s;
+}
+
+.biodata-social-links a:hover {
+    color: var(--text-dark);
+    transform: scale(1.1);
+}
+    
+.personal-details-wrapper {
+    flex-grow: 1;
+}
+
+.personal-details, .education-section {
+    padding: 20px;
+    background-color: var(--lilac-light);
+    border-radius: 8px;
+    margin-bottom: 30px; /* Only bottom margin for education */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    text-align: left;
+}
+
+.personal-details {
+    margin-bottom: 0; /* Handled by the flex container gap */
+}
+
+.personal-details p {
+    margin-bottom: 5px;
+    color: var(--text-dark);
+    font-size: 1.05em;
+}
+.personal-details p strong {
+    color: var(--lilac-accent);
+    min-width: 150px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 10px;
+}
+.personal-details h3, .education-section h3 {
+    margin-bottom: 15px;
+    color: var(--lilac-accent);
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+    
+.personal-details-wrapper h3 {
+    text-align: center; /* Center the title above the details box */
+    margin-bottom: 20px;
+}
+
+/* NEW: Comment Section Styles */
+#comments-list {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px 0;
+}
+.comment-card {
+    background-color: var(--lilac-white);
+    border: 1px solid var(--lilac-border);
+    border-left: 5px solid var(--lilac-accent);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.comment-card h4 {
+    color: var(--lilac-accent);
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+.comment-card .comment-subject {
+    color: var(--text-medium);
+    font-size: 0.85em;
+    margin-bottom: 10px;
+}
+.comment-card .comment-date {
+    display: block;
+    text-align: right;
+    font-size: 0.75em;
+    color: var(--text-medium);
+    margin-top: 10px;
+}
+
+
+.education-item {
+    padding: 15px;
+    margin: 15px auto;
+    border: 1px solid var(--lilac-border);
+    border-radius: 8px;
+    background-color: var(--lilac-white);
+    max-width: 800px;
+    text-align: left;
+    transition: box-shadow 0.3s;
+}
+.education-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+.education-item h4 {
+    color: var(--text-dark);
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.education-item .tags {
+    font-size: 0.9em;
+    color: var(--text-medium);
+    margin-bottom: 10px;
+}
+
+/* NEW STYLES for custom lists inside work/activity sections */
+.custom-list {
+    list-style-type: disc;
+    margin: 10px 0 0 20px;
+    padding: 0;
+    text-align: left;
+    color: var(--text-dark);
+}
+.custom-list li {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+.custom-list-container {
+    max-width: 800px;
+    margin: 15px auto;
+    padding: 15px;
+    border: 1px solid var(--lilac-border);
+    border-radius: 8px;
+    background-color: var(--lilac-white);
+}
+
+
+/* Timetable Styling (Required Element) */
+.timetable-wrapper {
+    overflow-x: auto;
+    margin: 30px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: var(--lilac-white); /* White table BG */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+table th, table td {
+    padding: 12px 8px;
+    border: 1px solid var(--lilac-border); /* Light grey border */
+}
+
+table thead th {
+    background-color: var(--lilac-accent); /* Lilac header */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--lilac-light); /* Alternating light grey rows */
+}
+
+.lunch {
+    background-color: var(--text-medium);
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* --- Portfolio Styles --- */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+.project-card {
+    background-color: var(--lilac-light); /* Light grey card BG */
+    border: 1px solid var(--lilac-border);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+/* Ensure title alignment is centered */
+.project-card h3 {
+    text-align: center;
+    margin-top: 5px; 
+    margin-bottom: 5px; 
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+    
+/* New style for the embedded iframe container (reused for YouTube embed) */
+.sketchfab-embed-wrapper {
+    width: 100%;
+    height: 300px; /* Fixed height for consistency in the grid */
+    margin-bottom: 15px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.sketchfab-embed-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.project-card img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.project-card .tags {
+    color: var(--lilac-accent); /* Lilac tags */
+    font-size: 0.85em;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--text-medium);
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid var(--lilac-accent); /* Lilac underline */
+    padding-bottom: 2px;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+.project-link:hover {
+    color: var(--text-dark);
+}
+
+/* --- Video Styles (Updated for Static Grid) --- */
+    
+.video-grid-static {
+    display: grid;
+    grid-template-columns: 1fr; /* Always a single column (stacked) */
+    gap: 40px;
+    max-width: 800px; /* MODIFIED: Set to 800px for a 'normal size' video display */
+    margin: 30px auto;
+}
+
+.video-card {
+    background-color: var(--lilac-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    text-align: center; /* Center content within the card */
+}
+
+.video-container {
+    position: relative; 
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    /* Removed single video max-width/margin-auto */
+    margin: 0 0 15px 0;
+    border-radius: 8px;
+    background-color: var(--text-dark);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+    
+/* Ensure the iframe fills the video container */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Overriding dynamic elements for static layout */
+.video-overlay-btn {
+    display: none !important; /* Hide navigation buttons */
+}
+
+.video-description {
+    text-align: center; /* Description is centered to match title */
+    margin: 0; /* Remove margin from previous dynamic description box */
+    padding: 0;
+    background-color: transparent; /* Remove background color */
+}
+
+.video-description h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--lilac-accent); /* Use accent color for titles */
+}
+
+
+/* --- Comments/Form Styles --- */
+    
+.form-wrapper {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: var(--lilac-white); /* White form background */
+    border: 1px solid var(--lilac-border);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-medium);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--lilac-border);
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--lilac-accent); /* Lilac on focus */
+    outline: none;
+}
+
+.submit-button {
+    background-color: var(--lilac-accent); /* Lilac button */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background-color: #A78BB0; /* Slightly darker lilac on hover */
+    transform: translateY(-2px);
+}
+
+/* Social links styling */
+#social-links {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+    
+/* UPDATED: Flex container for icons */
+#social-links .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Increased gap for icon separation */
+}
+    
+/* UPDATED: Icon styling */
+#social-links a {
+    color: var(--lilac-accent); /* Lilac icons */
+    font-size: 2rem; /* Large icon size */
+    transition: color 0.3s, transform 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+}
+#social-links a:hover {
+    color: var(--text-dark); /* Dark hover color */
+    transform: scale(1.1);
+}
+
+
+/* --- CSS Animation --- */
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-slide-up {
+    opacity: 0;
+    animation: slideUpFadeIn 1.5s ease-out 0.2s forwards;
+    transition: all 0.3s;
+}
+
+@keyframes borderGlow {
+    0% { border-color: var(--lilac-accent); } /* Lilac glow start */
+    50% { border-color: var(--text-medium); }
+    100% { border-color: var(--lilac-accent); } /* Lilac glow end */
+}
+
+.spin-border-fade {
+    animation: borderGlow 3s ease-in-out infinite alternate;
+}
+
+
+/* --- Responsive Design (Required Element) --- */
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 130px; /* More space for stacked header */
+    }
+    header .container {
+        padding: 10px;
+    }
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li a {
+        padding: 5px 10px;
+    }
+    
+    #home .intro-content {
+        /* On small screens, stack them vertically and center everything */
+        flex-direction: column;
+        align-items: center; /* Center content when stacked */
+        text-align: center;
+    }
+
+    .intro-text {
+        padding-right: 0;
+    }
+
+    .home-title {
+        text-align: center;
+    }
+
+    .home-title h2:after {
+        margin: 10px auto 20px auto; /* Center the underline */
+    }
+
+    .home-title h1 {
+        font-size: 2.2rem;
+    }
+
+    .home-title h2 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .profile-image img {
+        width: 180px;
+        /* Adjusted height for mobile rectangle */
+        height: 240px;
+        border-radius: 8px; /* Slightly smaller rounded corners on mobile */
+    }
+    
+    /* Responsive adjustments for the new biodata layout */
+    .biodata-header-layout {
+        flex-direction: column; /* Stack vertically on mobile */
+        align-items: center; /* Center items when stacked */
+    }
+    .biodata-image-container {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+        margin-top: 0;
+    }
+    .biodata-image-container img {
+        height: 150px;
+    }
+    
+    .personal-details p strong {
+        /* On small screen, display strong tag above content and align left */
+        display: block;
+        text-align: left;
+        margin-right: 0;
+        color: var(--text-dark); /* Less distracting on mobile */
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    
+    .education-item {
+        max-width: 100%;
+        text-align: center;
+    }
+    .education-item h4 {
+        text-align: center;
+    }
+
+
+    .timetable-wrapper {
+        font-size: 0.85em;
+    }
+}
